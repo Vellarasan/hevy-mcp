@@ -1,0 +1,12 @@
+{
+  "page": 1,
+  "page_count": 1,
+  "exercise_templates": [
+    {"id": "tpl_bench", "title": "Barbell Bench Press", "primary_muscle_group": "chest", "equipment": "barbell"},
+    {"id": "tpl_squat", "title": "Barbell Back Squat", "primary_muscle_group": "quads", "equipment": "barbell"},
+    {"id": "tpl_ohp", "title": "Barbell Overhead Press", "primary_muscle_group": "shoulders", "equipment": "barbell"},
+    {"id": "tpl_db_shoulder_press", "title": "Dumbbell Shoulder Press", "primary_muscle_group": "shoulders", "equipment": "dumbbell"},
+    {"id": "tpl_pullup", "title": "Pull Up", "primary_muscle_group": "lats", "equipment": "bodyweight"},
+    {"id": "tpl_deadlift", "title": "Conventional Deadlift", "primary_muscle_group": "hamstrings", "equipment": "barbell"}
+  ]
+}

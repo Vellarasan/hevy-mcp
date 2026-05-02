@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest a new tool, analytic, or improvement
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: What can't you do today, or what's awkward about how it works now?
+    validations: { required: true }
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like to see?
+      description: A new tool? A change to an existing tool's interface? An analytics formula?
+    validations: { required: true }
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've considered

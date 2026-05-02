@@ -1,0 +1,41 @@
+name: Bug report
+description: Something isn't working
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug, what you expected, and what you got.
+    validations: { required: true }
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: |
+        Include the prompt you sent Claude, the tool call(s) that fired, and the response.
+        Redact your API key before pasting any logs.
+      render: shell
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes:
+      label: hevy-mcp version
+      placeholder: "0.1.0"
+    validations: { required: true }
+  - type: dropdown
+    id: transport
+    attributes:
+      label: Transport
+      options: ["stdio (Claude Desktop)", "Streamable HTTP (claude.ai connector)"]
+    validations: { required: true }
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: "3.12.7"
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "macOS 14.5 / Ubuntu 24.04 / Windows 11"
