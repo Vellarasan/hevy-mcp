@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-05-02
+
+### Fixed
+- PyPI project page now shows the author name. Split author (display) from
+  maintainer (contact email) in `pyproject.toml` so the legacy `Author`
+  metadata field is populated.
+
 ## [0.1.0] - 2026-05-01
 
 ### Added
@@ -23,5 +30,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Uniform `{error, hint}` tool responses; rate-limit aware client honoring `Retry-After`.
 - Docker image (~170 MB) and GitHub Actions CI.
 
-[Unreleased]: https://github.com/Vellarasan/hevy-mcp/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/Vellarasan/hevy-mcp/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/Vellarasan/hevy-mcp/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/Vellarasan/hevy-mcp/releases/tag/v0.1.0
