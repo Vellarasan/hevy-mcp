@@ -5,7 +5,7 @@ Thanks for considering a contribution! This is a small project, so the workflow 
 ## Getting set up
 
 ```bash
-git clone https://github.com/YOUR-USER/hevy-mcp.git
+git clone https://github.com/Vellarasan/hevy-mcp.git
 cd hevy-mcp
 uv sync --extra dev          # or: python -m venv .venv && pip install -e ".[dev]"
 pytest -q

@@ -4,7 +4,7 @@
 
 `hevy-mcp` is a [Model Context Protocol](https://modelcontextprotocol.io) server that lets Claude (Desktop or claude.ai) read your workouts, design new routines, save them to your Hevy library, and analyze your training trends — the same kind of access ChatGPT users get from Hevy's official integration.
 
-[![CI](https://github.com/YOUR-USER/hevy-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR-USER/hevy-mcp/actions/workflows/ci.yml)
+[![CI](https://github.com/Vellarasan/hevy-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/Vellarasan/hevy-mcp/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/hevy-mcp.svg)](https://pypi.org/project/hevy-mcp/)
 [![Python](https://img.shields.io/pypi/pyversions/hevy-mcp.svg)](https://pypi.org/project/hevy-mcp/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -189,7 +189,7 @@ The exercise library is fetched on the first lookup (one-time, ~200ms). Every ca
 ## Development
 
 ```bash
-git clone https://github.com/YOUR-USER/hevy-mcp.git
+git clone https://github.com/Vellarasan/hevy-mcp.git
 cd hevy-mcp
 uv sync --extra dev          # creates .venv and installs deps
 pytest -q                    # offline tests (no real API needed)
