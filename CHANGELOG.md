@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   TTL cache of the Hevy library.
 - Idempotent routine creation (duplicate-title detection with `force=True` override).
 - Uniform `{error, hint}` tool responses; rate-limit aware client honoring `Retry-After`.
-- Docker image (<150 MB) and GitHub Actions CI.
+- Docker image (~170 MB) and GitHub Actions CI.
 
 [Unreleased]: https://github.com/Vellarasan/hevy-mcp/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/Vellarasan/hevy-mcp/releases/tag/v0.1.0
