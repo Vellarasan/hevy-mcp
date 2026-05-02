@@ -15,8 +15,6 @@ async def test_resolve_then_create(client, mock_hevy):
     name_to_id = {t["title"]: t["id"] for t in templates}
 
     # Step 2: fuzzy-resolve user-typed exercise names.
-    user_request = ["barbell back squat", "incline db press should miss", "overhead press"]
-
     def best(name: str) -> str | None:
         match = process.extractOne(name, name_to_id.keys(), scorer=fuzz.WRatio)
         if match is None:

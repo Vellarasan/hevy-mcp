@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from datetime import datetime, timezone
-from typing import Any, Iterable
+from typing import Any
 
 from ..errors import HevyApiError, tool_guard
 
