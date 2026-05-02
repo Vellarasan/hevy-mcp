@@ -12,10 +12,10 @@
           "exercise_template_id": "tpl_bench",
           "title": "Barbell Bench Press",
           "sets": [
-            {"index": 0, "set_type": "warmup", "weight_kg": 60, "reps": 8},
-            {"index": 1, "set_type": "normal", "weight_kg": 90, "reps": 5, "rpe": 7},
-            {"index": 2, "set_type": "normal", "weight_kg": 95, "reps": 5, "rpe": 8},
-            {"index": 3, "set_type": "normal", "weight_kg": 100, "reps": 4, "rpe": 9}
+            {"index": 0, "type": "warmup", "weight_kg": 60, "reps": 8},
+            {"index": 1, "type": "normal", "weight_kg": 90, "reps": 5, "rpe": 7},
+            {"index": 2, "type": "normal", "weight_kg": 95, "reps": 5, "rpe": 8},
+            {"index": 3, "type": "normal", "weight_kg": 100, "reps": 4, "rpe": 9}
           ]
         }
       ]

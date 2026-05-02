@@ -22,7 +22,7 @@ class _Base(BaseModel):
 
 class WorkoutSet(_Base):
     index: int | None = None
-    set_type: SetType = "normal"
+    type: SetType = "normal"
     weight_kg: float | None = None
     reps: int | None = None
     distance_meters: float | None = None
@@ -53,7 +53,7 @@ class Workout(_Base):
 class RoutineSet(_Base):
     """Routines use the same set shape as workouts; reps/weight are targets."""
     index: int | None = None
-    set_type: SetType = "normal"
+    type: SetType = "normal"
     weight_kg: float | None = None
     reps: int | None = None
     distance_meters: float | None = None

@@ -91,7 +91,7 @@ def register(mcp, ctx) -> None:
         `workout` shape:
           { title, description?, start_time, end_time, is_private?, exercises: [
               { exercise_template_id, notes?, superset_id?, sets: [
-                  { set_type, weight_kg?, reps?, rpe?, distance_meters?, duration_seconds? }
+                  { type, weight_kg?, reps?, rpe?, distance_meters?, duration_seconds? }
               ] }
           ] }
 

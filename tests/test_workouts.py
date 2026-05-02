@@ -19,8 +19,8 @@ def test_format_workout_renders_sets():
             {
                 "title": "Bench Press",
                 "sets": [
-                    {"set_type": "warmup", "weight_kg": 60, "reps": 8},
-                    {"set_type": "normal", "weight_kg": 100, "reps": 5, "rpe": 8},
+                    {"type": "warmup", "weight_kg": 60, "reps": 8},
+                    {"type": "normal", "weight_kg": 100, "reps": 5, "rpe": 8},
                 ],
             }
         ],

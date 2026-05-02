@@ -25,7 +25,7 @@ def _fmt_set(s: dict[str, Any]) -> str:
     duration = s.get("duration_seconds")
     distance = s.get("distance_meters")
     rpe = s.get("rpe")
-    set_type = s.get("set_type") or "normal"
+    set_type = s.get("type") or "normal"
 
     if reps is not None and weight is not None:
         bits.append(f"{reps} x {_fmt_weight(weight)}")

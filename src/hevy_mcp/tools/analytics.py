@@ -40,17 +40,10 @@ def register(mcp, ctx) -> None:
             return {"error": "No sets found for that exercise.",
                     "hint": "Verify the template id with `search_exercise_templates`."}
 
-        scored: list[tuple[float, dict[str, Any]]] = []
-        for s, when in sets:
-            w, r = s.get("weight_kg"), s.get("reps")
-            if w is None or r is None or r <= 0 or r > 15 or s.get("set_type") == "warmup":
-                continue
-            e1rm = _epley(w, r) if method == "epley" else _brzycki(w, r)
-            scored.append((e1rm, {**s, "estimated_1rm_kg": round(e1rm, 1), "performed_at": when}))
+        scored = _score_e1rm(sets, method)
         if not scored:
             return {"error": "No working sets in the recent history qualify for an e1RM estimate.",
                     "hint": "Log a few heavier working sets, then try again."}
-        scored.sort(key=lambda x: x[0], reverse=True)
         best = scored[0][1]
         return {
             "text": f"Best e1RM: {best['estimated_1rm_kg']}kg (from {best.get('reps')} x {best.get('weight_kg')}kg)",
@@ -106,7 +99,7 @@ def register(mcp, ctx) -> None:
                 tpl = by_id.get(ex.get("exercise_template_id")) or {}
                 muscle = tpl.get("primary_muscle_group") or "unknown"
                 for s in ex.get("sets") or []:
-                    if s.get("set_type") == "warmup":
+                    if s.get("type") == "warmup":
                         continue
                     w, r = s.get("weight_kg"), s.get("reps")
                     if w is None or r is None:
@@ -138,7 +131,7 @@ def register(mcp, ctx) -> None:
         per_day: dict[str, float] = {}
         for s, when in sets:
             w, r = s.get("weight_kg"), s.get("reps")
-            if w is None or r is None or r <= 0 or r > 15 or s.get("set_type") == "warmup":
+            if w is None or r is None or r <= 0 or r > 15 or s.get("type") == "warmup":
                 continue
             dt = _parse_dt(when)
             if since_dt and dt and dt < since_dt:
@@ -166,6 +159,29 @@ def register(mcp, ctx) -> None:
 
 
 # ---- helpers ---- #
+
+def _score_e1rm(
+    sets: list[tuple[dict[str, Any], str | None]],
+    method: str,
+) -> list[tuple[float, dict[str, Any]]]:
+    """Score and rank sets for e1RM, highest first.
+
+    Excludes warmups, reps outside (0, 15], and sets missing weight or reps.
+    Returns a list of (e1rm, set_with_metadata) tuples sorted descending.
+    Extracted from `estimate_one_rep_max` so it can be unit-tested without
+    going through FastMCP — see `tests/test_analytics.py` for the regression
+    that pins the warmup filter (silent set_type→type bug, fixed in 0.1.2).
+    """
+    scored: list[tuple[float, dict[str, Any]]] = []
+    for s, when in sets:
+        w, r = s.get("weight_kg"), s.get("reps")
+        if w is None or r is None or r <= 0 or r > 15 or s.get("type") == "warmup":
+            continue
+        e1rm = _epley(w, r) if method == "epley" else _brzycki(w, r)
+        scored.append((e1rm, {**s, "estimated_1rm_kg": round(e1rm, 1), "performed_at": when}))
+    scored.sort(key=lambda x: x[0], reverse=True)
+    return scored
+
 
 def _epley(weight: float, reps: int) -> float:
     return weight * (1 + reps / 30.0)

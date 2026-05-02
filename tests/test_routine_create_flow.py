@@ -33,8 +33,8 @@ async def test_resolve_then_create(client, mock_hevy):
         "title": "Hypertrophy Upper A",
         "exercises": [
             {"exercise_template_id": ohp_id, "sets": [
-                {"set_type": "normal", "weight_kg": 50, "reps": 8},
-                {"set_type": "normal", "weight_kg": 50, "reps": 8},
+                {"type": "normal", "weight_kg": 50, "reps": 8},
+                {"type": "normal", "weight_kg": 50, "reps": 8},
             ]},
         ],
     }
