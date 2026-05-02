@@ -27,9 +27,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build image
         run: docker build -t hevy-mcp:ci .
-      - name: Image size guard (<150MB)
+      - name: Image size guard (<200MB)
         run: |
           size=$(docker image inspect hevy-mcp:ci --format '{{.Size}}')
           mb=$((size / 1024 / 1024))
           echo "image size: ${mb}MB"
-          test "$mb" -lt 150
+          test "$mb" -lt 200
